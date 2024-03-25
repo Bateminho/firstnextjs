@@ -96,7 +96,7 @@ export default function Form({ customers,}: { customers: CustomerField[]}) {
                   type="radio"
                   value="pending"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                  aria-describedby='Please select an invoice status'
+                  aria-describedby='Please select an invoice status' 
                 />
                 <label
                   htmlFor="pending"
@@ -129,6 +129,11 @@ export default function Form({ customers,}: { customers: CustomerField[]}) {
               {error}
             </p>
           ))}
+        {(state.errors?.customerId || state.errors?.amount ||state.errors?.status) && 
+      <p className="mt-2 text-sm text-red-500">
+        Missing Fields. Failed to Create Invoice
+      </p>
+    }
       </div>
       
         </fieldset>
